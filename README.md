@@ -11,7 +11,8 @@
 ### 基本的な使い方
 
 1. **HTMLファイルにコンポーネントを追加**
-   - 以下のように、`BannerWidget` を使用するHTMLファイルに追加します。
+   
+- 以下のように、`BannerWidget` を使用するHTMLファイルに追加します。
 
 ```html
 <div id="banner-container"></div>
