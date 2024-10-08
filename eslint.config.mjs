@@ -16,9 +16,9 @@ export default [
         project: './tsconfig.json',
       },
       globals: {
-        window: 'readonly',       // 将 window 设置为全局变量
-        clearInterval: 'readonly', // 将 clearInterval 设置为全局变量
-        setInterval: 'readonly'   // 也可能需要设置 setInterval 为全局变量
+        window: 'readonly',       
+        clearInterval: 'readonly', 
+        setInterval: 'readonly'   
       },
     },
     plugins: {
