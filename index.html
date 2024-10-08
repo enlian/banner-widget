@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ウー ソーン Banner Widgets</title>
+    <link rel="stylesheet" href="./dist/styles.css" />
+  </head>
+  <body>
+    <span>バナー5枚</span>
+    <div id="banner-container-1"></div>
+    <span>バナー3枚</span>
+    <div id="banner-container-2"></div>
+    <span>バナー1枚</span>
+    <div id="banner-container-3"></div>
+    
+    <script type="module">
+      import BannerWidget from "./dist/BannerWidget.js";
+
+      const bannerImages1 = [
+        { image: "./img/banner_1.png", url: "https://github.com/enlian" },
+        { image: "./img/banner_2.png", url: "https://github.com/enlian" },
+        { image: "./img/banner_3.png", url: "https://github.com/enlian" },
+        { image: "./img/banner_4.png", url: "https://github.com/enlian" },
+        { image: "./img/banner_5.png", url: "https://github.com/enlian" },
+      ];
+
+      const bannerImages2 = [
+        { image: "./img/banner_1.png", url: "https://github.com/enlian" },
+        { image: "./img/banner_2.png", url: "https://github.com/enlian" },
+        { image: "./img/banner_3.png", url: "https://github.com/enlian" }
+      ];
+
+      const bannerImages3 = [
+        { image: "./img/banner_1.png", url: "https://github.com/enlian" },
+      ];
+
+      const bannerContainer1 = document.getElementById("banner-container-1");
+      const bannerContainer2 = document.getElementById("banner-container-2");
+      const bannerContainer3 = document.getElementById("banner-container-3");
+
+      bannerContainer1 &&
+        new BannerWidget({
+          banners: bannerImages1,
+          container: bannerContainer1,
+          interval: 3000,
+        });
+
+      bannerContainer2 &&
+        new BannerWidget({
+          banners: bannerImages2,
+          container: bannerContainer2,
+          interval: 3000,
+        });
+
+      bannerContainer3 &&
+        new BannerWidget({
+          banners: bannerImages3,
+          container: bannerContainer3,
+        });
+    </script>
+  </body>
+</html>

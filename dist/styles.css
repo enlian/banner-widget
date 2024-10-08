@@ -1,0 +1,63 @@
+@charset "UTF-8";
+.banner-container {
+  position: relative;
+  width: 300px; /* コンテナの幅は300px */
+  margin: 0 auto;
+  /* 矢印の設定 */
+}
+.banner-container .banner-wrapper {
+  overflow: hidden;
+  width: 100%; /* banner-wrapperの幅は100%に設定 */
+}
+.banner-container .banners {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%; /* バナーが1枚の場合、幅を100%に設定 */
+}
+.banner-container .banner {
+  min-width: 300px;
+}
+.banner-container .banner img {
+  width: 100%; /* 画像がコンテナの幅に合わせて自動調整 */
+  height: auto;
+  cursor: pointer;
+}
+.banner-container .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px;
+  height: auto;
+  outline: none;
+  -webkit-tap-highlight-color: transparent; /* モバイルでのクリック時のハイライトを無効化 */
+}
+.banner-container .arrow-left {
+  left: -30px; /* 左矢印の位置 */
+}
+.banner-container .arrow-right {
+  right: -30px; /* 右矢印の位置 */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+}
+.pagination .pagination-item {
+  margin: 0 5px;
+  cursor: pointer;
+  width: 20px;
+  height: auto;
+  outline: none;
+  -webkit-tap-highlight-color: transparent; /* モバイルでのクリック時のハイライトを無効化 */
+}
+
+span {
+  width: 100%;
+  display: block;
+  margin: 30px 0 5px 0;
+  text-align: center;
+}
+
+/*# sourceMappingURL=styles.css.map */
