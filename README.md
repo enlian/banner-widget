@@ -4,7 +4,7 @@
 
 このプロジェクトは、複数のバナーを順番に一定の時間で切り替えるシンプルなバナーウィジェットコンポーネントです。バナーは自動的にスクロールし、左右の矢印やページネーションで操作することもできます。PC、iOS、Androidに適応できます。
 
-<img src="screenshot.png" width="500"/>
+<img src="screenshot.png" width="400"/>
 
 ## 使用方法
 
@@ -14,26 +14,54 @@
    - 以下のように、`BannerWidget` を使用するHTMLファイルに追加します。
 
 ```html
+<div id="banner-container"></div>
 
-  <div id="banner-container"></div>
+<script type="module">
+  import BannerWidget from "./dist/BannerWidget.js";
 
-  <script type="module">
-    import BannerWidget from './dist/BannerWidget.js';
+  const bannerImages = [
+    { image: "./img/banner_1.png", url: "https://github.com/enlian" },
+    { image: "./img/banner_2.png", url: "https://github.com/enlian" },
+    { image: "./img/banner_3.png", url: "https://github.com/enlian" },
+  ];
 
-    const bannerImages = [
-      { image: './img/banner_1.png', url: 'https://github.com/enlian' },
-      { image: './img/banner_2.png', url: 'https://github.com/enlian' },
-      { image: './img/banner_3.png', url: 'https://github.com/enlian' }
-    ];
+  const bannerContainer = document.getElementById("banner-container");
 
-    const bannerContainer = document.getElementById('banner-container');
-
-    bannerContainer && new BannerWidget({
-        banners: bannerImages, // バナーリスト、画像とURLを含む
-        container: bannerContainer, // バナーコンポーネントのコンテナ
-        interval: 3000  // スクロールの間隔時間 (ミリ秒)
+  bannerContainer &&
+    new BannerWidget({
+      banners: bannerImages, // バナーリスト、画像とURLを含む
+      container: bannerContainer, // バナーコンポーネントのコンテナ
+      interval: 3000, // スクロールの間隔時間 (ミリ秒)
     });
-  </script>
+</script>
+```
+
+- 複数のBannerWidgetオブジェクトを同時に使用でき、互いに干渉しません。
+
+```js
+const bannerContainer1 = document.getElementById("banner-container-1");
+const bannerContainer2 = document.getElementById("banner-container-2");
+const bannerContainer3 = document.getElementById("banner-container-3");
+
+bannerContainer1 &&
+  new BannerWidget({
+    banners: bannerImages1,
+    container: bannerContainer1,
+    interval: 3000,
+  });
+
+bannerContainer2 &&
+  new BannerWidget({
+    banners: bannerImages2,
+    container: bannerContainer2,
+    interval: 3000,
+  });
+
+bannerContainer3 &&
+  new BannerWidget({
+    banners: bannerImages3,
+    container: bannerContainer3,
+  });
 ```
 
 ### パラメータの説明
@@ -68,8 +96,9 @@
 ## 調整方法
 
 1. **`src/BannerWidget.ts`を変更する**
+
    - このファイルには、バナーのロジックが含まれています。必要に応じて調整できます。
-  
+
 2. **スタイル調整**
    - `src/styles.scss` ファイルでバナーのデザインを調整できます。Sass でスタイルを記述し、変更があれば再コンパイルしてください。
 
@@ -79,9 +108,9 @@
 
 必要な依存関係をインストールします。
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 ### ローカルサーバーで実行する
 
@@ -104,9 +133,8 @@
 ## デプロイ方法
 
 ビルド後、`dist` フォルダに生成されたファイルをWebサーバーにアップロードします。以下のファイルが含まれます。
-   - `index.html`
-   - `dist/BannerWidget.js`
-   - `dist/styles.css`
-   - `dist/img` 
 
-
+- `index.html`
+- `dist/BannerWidget.js`
+- `dist/styles.css`
+- `dist/img`
