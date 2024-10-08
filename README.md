@@ -6,6 +6,8 @@
 
 技術スタック：**TypeScript**、**ESLint**、**Sass**を使用しています。
 
+Demo: [banner-widget.vercel.app](https://banner-widget.vercel.app/)
+
 
 <img src="screenshot.png" width="400"/>
 
