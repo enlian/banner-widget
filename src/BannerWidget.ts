@@ -54,7 +54,7 @@ class BannerWidget {
           ${this.banners
             .map(
               (_, index) =>
-                `<img src="./img/text_${index + 1}.png" class="pagination-item" data-index="${index}" />`
+                `<div class="pagination-item" data-index="${index}">${index + 1}</div>`
             )
             .join('')}
         </div>
@@ -100,8 +100,11 @@ class BannerWidget {
   private updatePagination() {
     const paginationItems = this.container.querySelectorAll(".pagination-item");
     paginationItems.forEach((item, index) => {
-      const img = item as HTMLImageElement;
-      img.src = `./img/text_${index + 1}${this.currentIndex === index ? "_on" : ""}.png`;
+      if (this.currentIndex === index) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
     });
   }
 

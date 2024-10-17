@@ -20,7 +20,7 @@ var BannerWidget = /** @class */ (function () {
             .map(function (banner) { return "<div class=\"banner\" data-url=\"".concat(banner.url, "\"><img src=\"").concat(banner.image, "\" /></div>"); })
             .join(''), "\n          </div>\n        </div>\n        <img src=\"./img/pic_right_arrow.png\" class=\"arrow arrow-right\" alt=\"Next\" ").concat(isSingleBanner ? 'style="display:none"' : '', "/>\n      </div>\n      ").concat(!isSingleBanner ? "\n        <div class=\"pagination\">\n          ".concat(this.banners
             .map(function (_, index) {
-            return "<img src=\"./img/text_".concat(index + 1, ".png\" class=\"pagination-item\" data-index=\"").concat(index, "\" />");
+            return "<div class=\"pagination-item\" data-index=\"".concat(index, "\">").concat(index + 1, "</div>");
         })
             .join(''), "\n        </div>\n      ") : '', "\n    ");
         this.updatePagination();
@@ -59,8 +59,12 @@ var BannerWidget = /** @class */ (function () {
         var _this = this;
         var paginationItems = this.container.querySelectorAll(".pagination-item");
         paginationItems.forEach(function (item, index) {
-            var img = item;
-            img.src = "./img/text_".concat(index + 1).concat(_this.currentIndex === index ? "_on" : "", ".png");
+            if (_this.currentIndex === index) {
+                item.classList.add("active");
+            }
+            else {
+                item.classList.remove("active");
+            }
         });
     };
     // イベントリスナーを追加する

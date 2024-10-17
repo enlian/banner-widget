@@ -20,6 +20,8 @@
       width: 100%; /* 画像がコンテナの幅に合わせて自動調整 */
       height: auto;
       cursor: pointer;
+      border: 5px;
+      overflow: hidden;
     }
   }
 
@@ -29,7 +31,7 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    width: 20px;
+    width: 30px;
     height: auto;
     outline: none; 
     -webkit-tap-highlight-color: transparent; /* モバイルでのクリック時のハイライトを無効化 */
@@ -47,15 +49,21 @@
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 0;
-
+  margin-top: 0px; /* マージンの調整 */
+  
   .pagination-item {
     margin: 0 5px;
     cursor: pointer;
-    width: 20px;
-    height: auto;
+    font-size: 14px;
+    color: #999; /* デフォルトの色 */
+    transition: color 0.3s;
     outline: none; 
     -webkit-tap-highlight-color: transparent; /* モバイルでのクリック時のハイライトを無効化 */
+  }
+
+  .pagination-item.active {
+    color: #333; /* アクティブな状態の色 */
+    font-weight: bold;
   }
 }
 
